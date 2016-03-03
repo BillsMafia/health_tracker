@@ -1,44 +1,26 @@
 Rails.application.routes.draw do
   get 'exercises_type/index'
-
   get 'exercises_type/show'
-
   get 'exercises_type/new'
-
   get 'exercises_type/edit'
-
   get 'exercises_type/update'
-
   get 'exercises_type/create'
-
   get 'exercises_type/destroy'
 
   get 'exercises_performed/index'
-
   get 'exercises_performed/show'
-
   get 'exercises_performed/new'
-
   get 'exercises_performed/edit'
-
   get 'exercises_performed/update'
-
   get 'exercises_performed/create'
-
   get 'exercises_performed/destroy'
 
   get 'calories_consumed/index'
-
   get 'calories_consumed/show'
-
   get 'calories_consumed/new'
-
   get 'calories_consumed/edit'
-
   get 'calories_consumed/update'
-
   get 'calories_consumed/create'
-
   get 'calories_consumed/destroy'
 
   root 'dashboard#index'

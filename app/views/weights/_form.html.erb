@@ -13,7 +13,7 @@
 
   <div class="field">
     <%= f.label :weight %><br>
-    <%= f.text_field :weight %>
+    <%= f.number_field :amount, class: :text_field, step: 0.01 %>
   </div>
   <div class="actions">
     <%= f.submit %>
