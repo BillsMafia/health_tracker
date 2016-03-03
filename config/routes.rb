@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :calories_consumed
   get 'calories_consumed/index'
   get 'calories_consumed/show'
   get 'calories_consumed/new'
