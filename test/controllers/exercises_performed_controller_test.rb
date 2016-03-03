@@ -1,13 +1,19 @@
 require 'test_helper'
 
 class ExercisesPerformedControllerTest < ActionController::TestCase
+  setup do
+    @exercise = exercises_performeds(:one)
+  end
+
   test "should get index" do
     get :index
     assert_response :success
+    assert_not_nil assigns(:exercises)
+    assert_not_nil assigns(:types)
   end
 
   test "should get show" do
-    get :show
+    get :show, id: @exercise
     assert_response :success
   end
 
@@ -17,22 +23,25 @@ class ExercisesPerformedControllerTest < ActionController::TestCase
   end
 
   test "should get edit" do
-    get :edit
+    get :edit, id: @exercise
     assert_response :success
   end
 
   test "should get update" do
-    get :update
-    assert_response :success
+    patch :update, id: @exercise, exercises_performed: { date_burned: @exercise.date_burned, exercise_type: {name: "RUNNING"}}
+    assert_redirected_to exercises_performed_index_path(assigns(:exercises_performed))
   end
 
   test "should get create" do
-    get :create
-    assert_response :success
+    assert_difference('ExercisesPerformed.count') do
+      post :create, exercises_performed: { date_burned: @exercise.date_burned, exercise_type: {name: "RUNNING"}}
+    end
+
+    assert_redirected_to root_path(assigns(:activity))
   end
 
   test "should get destroy" do
-    get :destroy
+    get :destroy, id: @exercise
     assert_response :success
   end
 

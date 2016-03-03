@@ -5,9 +5,9 @@ Rails.application.routes.draw do
   get 'exercises_type/show'
   get 'exercises_type/new'
   get 'exercises_type/edit'
-  get 'exercises_type/update'
-  get 'exercises_type/create'
-  get 'exercises_type/destroy'
+  put 'exercises_type/update'
+  post 'exercises_type/create'
+  delete 'exercises_type/destroy'
 
   get 'exercises_performed/index'
   get 'exercises_performed/show'
