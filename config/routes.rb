@@ -1,4 +1,12 @@
 Rails.application.routes.draw do
+  get 'calories_consumed/index'
+  get 'calories_consumed/show'
+  get 'calories_consumed/new'
+  post 'calories_consumed/create'
+  get 'calories_consumed/edit'
+  put 'calories_consumed/update'
+  delete 'calories_consumed/destroy'
+
   resources :steps_takens
   resources :weights
   get 'exercises_type/index'
@@ -16,14 +24,6 @@ Rails.application.routes.draw do
   put 'exercises_performed/update'
   post 'exercises_performed/create'
   delete 'exercises_performed/destroy'
-
-  get 'calories_consumed/index'
-  get 'calories_consumed/show'
-  get 'calories_consumed/new'
-  get 'calories_consumed/edit'
-  put 'calories_consumed/update'
-  post 'calories_consumed/create'
-  delete 'calories_consumed/destroy'
 
   root 'dashboard#index'
 
