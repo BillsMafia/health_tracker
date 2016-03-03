@@ -69,6 +69,6 @@ class StepsTakensController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def steps_taken_params
-      params.require(:steps_taken).permit(:steps)
+      params.require(:steps_taken).permit(:steps_taken, :date_walked)
     end
 end

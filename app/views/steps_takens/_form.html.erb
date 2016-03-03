@@ -12,8 +12,12 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :steps %><br>
-    <%= f.number_field :steps %>
+    <%= f.label :steps_taken %><br>
+    <%= f.number_field :steps_taken %>
+  </div>
+  <div class="field">
+    <%= f.label :date_walked %><br>
+    <%= f.date_select :date_walked %>
   </div>
   <div class="actions">
     <%= f.submit %>

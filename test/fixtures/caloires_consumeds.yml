@@ -2,6 +2,8 @@
 
 one:
   consumed: 9.99
+  date_consumed: 2016-03-03
 
 two:
   consumed: 9.99
+  date_consumed: 2016-03-03

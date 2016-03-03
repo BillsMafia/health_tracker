@@ -6,6 +6,7 @@
   <thead>
     <tr>
       <th>Weight</th>
+      <th>Date weighed</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -14,6 +15,7 @@
     <% @weights.each do |weight| %>
       <tr>
         <td><%= weight.weight %></td>
+        <td><%= weight.date_weighed %></td>
         <td><%= link_to 'Show', weight %></td>
         <td><%= link_to 'Edit', edit_weight_path(weight) %></td>
         <td><%= link_to 'Destroy', weight, method: :delete, data: { confirm: 'Are you sure?' } %></td>

@@ -1,8 +1,13 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Steps:</strong>
-  <%= @steps_taken.steps %>
+  <strong>Steps taken:</strong>
+  <%= @steps_taken.steps_taken %>
+</p>
+
+<p>
+  <strong>Date walked:</strong>
+  <%= @steps_taken.date_walked %>
 </p>
 
 <%= link_to 'Edit', edit_steps_taken_path(@steps_taken) %> |
