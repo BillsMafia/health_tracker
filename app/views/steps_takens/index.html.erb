@@ -1,0 +1,27 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Steps Takens</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Steps</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @steps_takens.each do |steps_taken| %>
+      <tr>
+        <td><%= steps_taken.steps %></td>
+        <td><%= link_to 'Show', steps_taken %></td>
+        <td><%= link_to 'Edit', edit_steps_taken_path(steps_taken) %></td>
+        <td><%= link_to 'Destroy', steps_taken, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Steps taken', new_steps_taken_path %>
