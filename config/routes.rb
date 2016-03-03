@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  root 'dashboard#index'
+
+  get 'dashboard/index'
+
   resources :steps_takens
   resources :weights
   # The priority is based upon order of creation: first created -> highest priority.
