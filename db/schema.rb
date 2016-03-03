@@ -11,12 +11,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160303200427) do
+ActiveRecord::Schema.define(version: 20160303202520) do
 
-  create_table "calories_consumeds", force: :cascade do |t|
-    t.decimal  "consumed",   precision: 6, scale: 2
-    t.datetime "created_at",                         null: false
-    t.datetime "updated_at",                         null: false
+  create_table "caloires_consumeds", force: :cascade do |t|
+    t.decimal  "consumed",      precision: 6, scale: 2
+    t.date     "date_consumed"
+    t.datetime "created_at",                            null: false
+    t.datetime "updated_at",                            null: false
+  end
+
+  create_table "exercise_performeds", force: :cascade do |t|
+    t.integer  "exercise_type_id"
+    t.decimal  "calories_burned",  precision: 6, scale: 2
+    t.date     "date_burned"
+    t.datetime "created_at",                               null: false
+    t.datetime "updated_at",                               null: false
   end
 
   create_table "exercise_types", force: :cascade do |t|
@@ -33,15 +42,17 @@ ActiveRecord::Schema.define(version: 20160303200427) do
   end
 
   create_table "steps_takens", force: :cascade do |t|
-    t.integer  "steps"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.integer  "steps_taken"
+    t.date     "date_walked"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
   create_table "weights", force: :cascade do |t|
-    t.decimal  "weight",     precision: 5, scale: 2
-    t.datetime "created_at",                         null: false
-    t.datetime "updated_at",                         null: false
+    t.decimal  "weight",       precision: 5, scale: 2
+    t.date     "date_weighed"
+    t.datetime "created_at",                           null: false
+    t.datetime "updated_at",                           null: false
   end
 
 end
