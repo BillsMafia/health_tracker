@@ -1,9 +1,9 @@
 class ExercisesPerformedsController < ApplicationController
   before_action :set_exercise, only: [:show, :edit, :update, :destroy]
+  before_action :set_types, only: [:new, :edit, :update, :create]
 
   def index
     @exercises_performeds = ExercisesPerformed.all
-    @types = ExerciseType.all
   end
 
   def show
@@ -29,7 +29,7 @@ class ExercisesPerformedsController < ApplicationController
   end
 
   def create
-    @exercises_performed = ExercisesPerformed.create(exercise_params)
+    @exercises_performed = ExercisesPerformed.new(exercise_params)
 
     respond_to do |format|
       if @exercises_performed.save
@@ -54,8 +54,12 @@ class ExercisesPerformedsController < ApplicationController
     @exercises_performed = ExercisesPerformed.find(params[:id])
   end
 
+  def set_types
+    @types = ExerciseType.all
+  end
+
   # Never trust parameters from the scary internet, only allow the white list through.
   def exercise_params
-    params.require(:exercises_performed).permit(:calories_burned, :date_burned, :exercise_name)
+    params.require(:exercises_performed).permit(:calories_burned, :date_burned, :exercise_type_id)
   end
 end

@@ -14,7 +14,7 @@
  *= require_self
  */
 
- .grid, .grid th, .grid tr, .grid th {
+ .grid, .grid th, .grid tr, .grid td {
    border: 1px solid black;
  }
 

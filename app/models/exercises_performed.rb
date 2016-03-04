@@ -1,5 +1,6 @@
 class ExercisesPerformed < ActiveRecord::Base
   belongs_to :exercise_type
+  validates :exercise_type, presence: {message: 'You must select an exercise type.'}
 
   def exercise_name
     exercise_type.name
