@@ -1,6 +1,7 @@
 require 'test_helper'
 
 class CaloriesConsumedControllerTest < ActionController::TestCase
+
   # test "should get index" do
   #   get :index
   #   assert_response :success

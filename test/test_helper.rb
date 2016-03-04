@@ -5,6 +5,7 @@ require 'minitest/pride'
 
 ActiveRecord::Migration.verbose = false
 
+
 class ActiveSupport::TestCase
   # Setup all fixtures in test/fixtures/*.yml for all tests in alphabetical order.
   fixtures :all
