@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   resources :steps_takens
   resources :weights
-  resources :exercises_performed
+  resources :exercises_performeds
   resources :exercises_type
   resources :calories_consumed
 

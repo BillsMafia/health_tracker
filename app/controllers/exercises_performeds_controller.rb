@@ -1,4 +1,4 @@
-class ExercisesPerformedController < ApplicationController
+class ExercisesPerformedsController < ApplicationController
   before_action :set_exercise, only: [:show, :edit, :update, :destroy]
 
   def index
@@ -24,6 +24,7 @@ class ExercisesPerformedController < ApplicationController
       if @exercises_performed.update(exercise_params.except(:exercise_type))
         @exercise_type.save
         @exercise_type.exercises_performeds << @exercises_performed
+        # byebug
         format.html { redirect_to @exercises_performed, notice: 'Activity was successfully updated.' }
         format.json { render :show, status: :ok, location: @exercises_performed }
       else
@@ -58,6 +59,6 @@ class ExercisesPerformedController < ApplicationController
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def exercise_params
-    params.require(:exercises_performed).permit(:date_burned, exercise_type: [:name])
+    params.require(:exercises_performed).permit(:calories_burned, :date_burned, exercise_type: [:name])
   end
 end

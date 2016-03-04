@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class ExercisesPerformedControllerTest < ActionController::TestCase
+class ExercisesPerformedsControllerTest < ActionController::TestCase
   setup do
     @exercise = exercises_performeds(:one)
   end
@@ -8,7 +8,7 @@ class ExercisesPerformedControllerTest < ActionController::TestCase
   test "should get index" do
     get :index
     assert_response :success
-    assert_not_nil assigns(:exercises_performed)
+    assert_not_nil assigns(:exercises_performeds)
     assert_not_nil assigns(:types)
   end
 
@@ -28,16 +28,16 @@ class ExercisesPerformedControllerTest < ActionController::TestCase
   end
 
   test "should get update" do
-    patch :update, id: @exercise, exercises_performed: { date_burned: @exercise.date_burned, exercise_type: {name: "RUNNING"}}
+    patch :update, id: @exercise, exercises_performed: { calories_burned: @exercise.calories_burned, date_burned: @exercise.date_burned, exercise_type: {name: "RUNNING"}}
     assert_redirected_to exercises_performed_path(assigns(:exercises_performed))
   end
 
   test "should get create" do
     assert_difference('ExercisesPerformed.count') do
-      post :create, exercises_performed: { date_burned: @exercise.date_burned, exercise_type: {name: "RUNNING"}}
+      post :create, exercises_performed: { calories_burned: @exercise.calories_burned, date_burned: @exercise.date_burned, exercise_type: {name: "RUNNING"}}
     end
 
-    assert_redirected_to exercises_performed_path(assigns(:activity))
+    assert_redirected_to exercises_performed_path(assigns(:exercises_performed))
   end
 
   test "should get destroy" do
