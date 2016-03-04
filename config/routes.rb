@@ -1,33 +1,11 @@
 Rails.application.routes.draw do
-  resources :calories_consumed
-  get 'calories_consumed/index'
-  get 'calories_consumed/show'
-  get 'calories_consumed/new'
-  post 'calories_consumed/create'
-  get 'calories_consumed/edit'
-  put 'calories_consumed/update'
-  delete 'calories_consumed/destroy'
-
   resources :steps_takens
   resources :weights
-  get 'exercises_type/index'
-  get 'exercises_type/show'
-  get 'exercises_type/new'
-  get 'exercises_type/edit'
-  get 'exercises_type/update'
-  get 'exercises_type/create'
-  get 'exercises_type/destroy'
-
-  get 'exercises_performed/index'
-  get 'exercises_performed/show'
-  get 'exercises_performed/new'
-  get 'exercises_performed/edit'
-  put 'exercises_performed/update'
-  post 'exercises_performed/create'
-  delete 'exercises_performed/destroy'
+  resources :exercises_performeds
+  resources :exercises_type
+  resources :calories_consumed
 
   root 'dashboard#index'
-
   get 'dashboard/index'
 
   # The priority is based upon order of creation: first created -> highest priority.
