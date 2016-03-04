@@ -1,2 +1,28 @@
-<h1>ExercisesType#index</h1>
-<p>Find me in app/views/exercises_type/index.html.erb</p>
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Exercise Type</h1>
+
+<table class="grid">
+  <thead>
+    <tr>
+      <th>Exercises Type</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @exercise_types.each do |exercise_type| %>
+      <tr>
+        <td><%= exercise_type.name %></td>
+        <td><%= link_to 'Show', exercise_type %></td>
+        <td><%= link_to 'Edit', edit_exercise_type_path(exercise_type) %></td>
+        <td><%= link_to 'Destroy', exercise_type, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Exercise Type', new_exercise_type_path %> |
+<%= link_to 'Exercises Performed', exercises_performeds_path %>

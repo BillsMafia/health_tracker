@@ -9,6 +9,7 @@ class ExerciseTypesController < ApplicationController
   end
 
   def new
+    @exercise_type = ExerciseType.new
   end
 
   def edit
@@ -43,7 +44,7 @@ class ExerciseTypesController < ApplicationController
   def destroy
     @exercise_type.destroy
     respond_to do |format|
-      format.html { redirect_to exercise_type_url, notice: 'Exercise Type was successfully destroyed.' }
+      format.html { redirect_to exercise_types_url, notice: 'Exercise Type was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
