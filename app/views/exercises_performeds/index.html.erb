@@ -1,2 +1,32 @@
-<h1>ExercisesPerformed#index</h1>
-<p>Find me in app/views/exercises_performed/index.html.erb</p>
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Exercises Performed</h1>
+
+<table class="grid">
+  <thead>
+    <tr>
+      <th>Exercises Type</th>
+      <th>Calories Burned</th>
+      <th>Date Performed</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @exercises_performeds.each do |exercises_performed| %>
+      <tr>
+        <td><%= exercises_performed.exercise_name %></td>
+        <td><%= exercises_performed.calories_burned %></td>
+        <td><%= exercises_performed.date_burned %></td>
+        <td><%= link_to 'Show', exercises_performed %></td>
+        <td><%= link_to 'Edit', edit_exercises_performed_path(exercises_performed) %></td>
+        <td><%= link_to 'Destroy', exercises_performed, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Exercise Performed', new_exercises_performed_path %> |
+<%= link_to 'Dashboard', root_path %>

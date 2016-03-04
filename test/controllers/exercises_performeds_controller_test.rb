@@ -28,13 +28,13 @@ class ExercisesPerformedsControllerTest < ActionController::TestCase
   end
 
   test "should get update" do
-    patch :update, id: @exercise, exercises_performed: { calories_burned: @exercise.calories_burned, date_burned: @exercise.date_burned, exercise_type: {name: "RUNNING"}}
+    patch :update, id: @exercise, exercises_performed: { calories_burned: @exercise.calories_burned, date_burned: @exercise.date_burned, exercise_name: @exercise.exercise_name}
     assert_redirected_to exercises_performed_path(assigns(:exercises_performed))
   end
 
   test "should get create" do
     assert_difference('ExercisesPerformed.count') do
-      post :create, exercises_performed: { calories_burned: @exercise.calories_burned, date_burned: @exercise.date_burned, exercise_type: {name: "RUNNING"}}
+      post :create, exercises_performed: { calories_burned: @exercise.calories_burned, date_burned: @exercise.date_burned, exercise_name: @exercise.exercise_name}
     end
 
     assert_redirected_to exercises_performed_path(assigns(:exercises_performed))

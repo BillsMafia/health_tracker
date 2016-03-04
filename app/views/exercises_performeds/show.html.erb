@@ -1,2 +1,19 @@
-<h1>ExercisesPerformed#show</h1>
-<p>Find me in app/views/exercises_performed/show.html.erb</p>
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Exercise Type:</strong>
+  <%= @exercises_performed.exercise_name %>
+</p>
+
+<p>
+  <strong>Calories Burned:</strong>
+  <%= @exercises_performed.calories_burned %>
+</p>
+
+<p>
+  <strong>Date Performed:</strong>
+  <%= @exercises_performed.date_burned %>
+</p>
+
+<%= link_to 'Edit', edit_exercises_performed_path(@exercises_performed) %> |
+<%= link_to 'Back', exercises_performeds_path %>
