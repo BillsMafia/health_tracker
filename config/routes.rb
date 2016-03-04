@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   resources :steps_takens
   resources :weights
   resources :exercises_performeds
-  resources :exercises_type
+  resources :exercise_types
   resources :calories_consumeds
 
   root 'dashboard#index'
