@@ -44,7 +44,7 @@ class ExerciseTypesControllerTest < ActionController::TestCase
       delete :destroy, id: @type
     end
 
-    assert_redirected_to exercise_type_path
+    assert_redirected_to exercise_types_path
   end
 
 end
