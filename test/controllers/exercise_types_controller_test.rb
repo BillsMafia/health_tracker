@@ -1,20 +1,25 @@
 require 'test_helper'
 
-class ExercisesTypeControllerTest < ActionController::TestCase
-  # test "should get index" do
-  #   get :index
-  #   assert_response :success
-  # end
-  #
-  # test "should get show" do
-  #   get :show
-  #   assert_response :success
-  # end
-  #
-  # test "should get new" do
-  #   get :new
-  #   assert_response :success
-  # end
+class ExerciseTypesControllerTest < ActionController::TestCase
+  setup do
+    @type = exercise_types(:one)
+  end
+
+  test "should get index" do
+    get :index
+    assert_response :success
+    assert_not_nil assigns(:exercise_types)
+  end
+
+  test "should get show" do
+    get :show, id: @type
+    assert_response :success
+  end
+
+  test "should get new" do
+    get :new
+    assert_response :success
+  end
   #
   # test "should get edit" do
   #   get :edit

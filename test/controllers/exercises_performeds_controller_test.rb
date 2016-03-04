@@ -9,7 +9,6 @@ class ExercisesPerformedsControllerTest < ActionController::TestCase
     get :index
     assert_response :success
     assert_not_nil assigns(:exercises_performeds)
-    assert_not_nil assigns(:types)
   end
 
   test "should get show" do
@@ -28,13 +27,13 @@ class ExercisesPerformedsControllerTest < ActionController::TestCase
   end
 
   test "should get update" do
-    patch :update, id: @exercise, exercises_performed: { calories_burned: @exercise.calories_burned, date_burned: @exercise.date_burned, exercise_name: @exercise.exercise_name}
+    patch :update, id: @exercise, exercises_performed: { calories_burned: @exercise.calories_burned, date_burned: @exercise.date_burned, exercise_type_id: @exercise.exercise_type_id}
     assert_redirected_to exercises_performed_path(assigns(:exercises_performed))
   end
 
   test "should get create" do
     assert_difference('ExercisesPerformed.count') do
-      post :create, exercises_performed: { calories_burned: @exercise.calories_burned, date_burned: @exercise.date_burned, exercise_name: @exercise.exercise_name}
+      post :create, exercises_performed: { calories_burned: @exercise.calories_burned, date_burned: @exercise.date_burned, exercise_type_id: @exercise.exercise_type_id}
     end
 
     assert_redirected_to exercises_performed_path(assigns(:exercises_performed))
