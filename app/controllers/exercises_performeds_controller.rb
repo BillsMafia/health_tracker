@@ -17,14 +17,8 @@ class ExercisesPerformedsController < ApplicationController
   end
 
   def update
-    et = ExerciseType.where("name == ? ", exercise_params[:exercise_type][:name].upcase)
-    et.empty? ? @exercise_type = ExerciseType.new(name: exercise_params[:exercise_type][:name].upcase) : @exercise_type = et.first
-
     respond_to do |format|
-      if @exercises_performed.update(exercise_params.except(:exercise_type))
-        @exercise_type.save
-        @exercise_type.exercises_performeds << @exercises_performed
-        # byebug
+      if @exercises_performed.update(exercise_params)
         format.html { redirect_to @exercises_performed, notice: 'Exercise Entry was successfully updated.' }
         format.json { render :show, status: :ok, location: @exercises_performed }
       else
@@ -35,12 +29,10 @@ class ExercisesPerformedsController < ApplicationController
   end
 
   def create
-    et = ExerciseType.where("name == ? ", exercise_params[:exercise_type][:name].upcase)
-    et.empty? ? @exercise_type = ExerciseType.new(name: exercise_params[:exercise_type][:name].upcase) : @exercise_type = et.first
-    @exercises_performed = ExercisesPerformed.create(exercise_params.except(:exercise_type))
+    @exercises_performed = ExercisesPerformed.create(exercise_params)
 
     respond_to do |format|
-      if @exercise_type.exercises_performeds << @exercises_performed && @exercises_performed.save
+      if @exercises_performed.save
         format.html { redirect_to @exercises_performed, notice: 'Exercise Entry was successfully created.' }
         format.json { render :show, status: :created, location: @exercises_performed }
       else
@@ -64,6 +56,6 @@ class ExercisesPerformedsController < ApplicationController
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def exercise_params
-    params.require(:exercises_performed).permit(:calories_burned, :date_burned, exercise_type: [:name])
+    params.require(:exercises_performed).permit(:calories_burned, :date_burned, :exercise_name)
   end
 end

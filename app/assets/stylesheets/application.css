@@ -13,3 +13,11 @@
  *= require_tree .
  *= require_self
  */
+
+ .grid, .grid th, .grid tr, .grid th {
+   border: 1px solid black;
+ }
+
+table {
+  border-collapse: collapse;
+}
