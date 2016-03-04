@@ -1,2 +1,9 @@
-<h1>ExercisesType#show</h1>
-<p>Find me in app/views/exercises_type/show.html.erb</p>
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Exercise Type:</strong>
+  <%= @exercise_type.name %>
+</p>
+
+<%= link_to 'Edit', edit_exercise_type_path(@exercise_type) %> |
+<%= link_to 'Back', exercise_types_path %>
