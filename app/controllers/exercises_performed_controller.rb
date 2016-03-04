@@ -2,7 +2,7 @@ class ExercisesPerformedController < ApplicationController
   before_action :set_exercise, only: [:show, :edit, :update, :destroy]
 
   def index
-    @exercises = ExercisesPerformed.all
+    @exercises_performeds = ExercisesPerformed.all
     @types = ExerciseType.all
   end
 
@@ -17,20 +17,34 @@ class ExercisesPerformedController < ApplicationController
   end
 
   def update
+    et = ExerciseType.where("name == ? ", exercise_params[:exercise_type][:name].upcase)
+    et.empty? ? @exercise_type = ExerciseType.new(name: exercise_params[:exercise_type][:name].upcase) : @exercise_type = et.first
+
+    respond_to do |format|
+      if @exercises_performed.update(exercise_params.except(:exercise_type))
+        @exercise_type.save
+        @exercise_type.exercises_performeds << @exercises_performed
+        format.html { redirect_to @exercises_performed, notice: 'Activity was successfully updated.' }
+        format.json { render :show, status: :ok, location: @exercises_performed }
+      else
+        format.html { render :edit }
+        format.json { render json: @exercises_performed.errors, status: :unprocessable_entity }
+      end
+    end
   end
 
   def create
     et = ExerciseType.where("name == ? ", exercise_params[:exercise_type][:name].upcase)
     et.empty? ? @exercise_type = ExerciseType.new(name: exercise_params[:exercise_type][:name].upcase) : @exercise_type = et.first
-    @exercise = ExercisesPerformed.new(exercise_params.except(:exercise_type))
+    @exercises_performed = ExercisesPerformed.create(exercise_params.except(:exercise_type))
 
     respond_to do |format|
-      if @exercise_type.exercises_performeds << @exercise && @exercise.save
-        format.html { redirect_to root_path, notice: 'Activity was successfully created.' }
-        format.json { render :show, status: :created, location: @exercise }
+      if @exercise_type.exercises_performeds << @exercises_performed && @exercises_performed.save
+        format.html { redirect_to @exercises_performed, notice: 'Activity was successfully created.' }
+        format.json { render :show, status: :created, location: @exercises_performed }
       else
         format.html { render :new }
-        format.json { render json: @exercise.errors, status: :unprocessable_entity }
+        format.json { render json: @exercises_performed.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -39,7 +53,7 @@ class ExercisesPerformedController < ApplicationController
   end
 
   def set_exercise
-    @exercise = ExercisesPerformed.find(params[:id])
+    @exercises_performed = ExercisesPerformed.find(params[:id])
   end
 
   # Never trust parameters from the scary internet, only allow the white list through.

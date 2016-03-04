@@ -8,7 +8,7 @@ class ExercisesPerformedControllerTest < ActionController::TestCase
   test "should get index" do
     get :index
     assert_response :success
-    assert_not_nil assigns(:exercises)
+    assert_not_nil assigns(:exercises_performed)
     assert_not_nil assigns(:types)
   end
 
@@ -29,7 +29,7 @@ class ExercisesPerformedControllerTest < ActionController::TestCase
 
   test "should get update" do
     patch :update, id: @exercise, exercises_performed: { date_burned: @exercise.date_burned, exercise_type: {name: "RUNNING"}}
-    assert_redirected_to exercises_performed_index_path(assigns(:exercises_performed))
+    assert_redirected_to exercises_performed_path(assigns(:exercises_performed))
   end
 
   test "should get create" do
@@ -37,7 +37,7 @@ class ExercisesPerformedControllerTest < ActionController::TestCase
       post :create, exercises_performed: { date_burned: @exercise.date_burned, exercise_type: {name: "RUNNING"}}
     end
 
-    assert_redirected_to root_path(assigns(:activity))
+    assert_redirected_to exercises_performed_path(assigns(:activity))
   end
 
   test "should get destroy" do
