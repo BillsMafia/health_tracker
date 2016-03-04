@@ -25,7 +25,7 @@ class ExercisesPerformedsController < ApplicationController
         @exercise_type.save
         @exercise_type.exercises_performeds << @exercises_performed
         # byebug
-        format.html { redirect_to @exercises_performed, notice: 'Activity was successfully updated.' }
+        format.html { redirect_to @exercises_performed, notice: 'Exercise Entry was successfully updated.' }
         format.json { render :show, status: :ok, location: @exercises_performed }
       else
         format.html { render :edit }
@@ -41,7 +41,7 @@ class ExercisesPerformedsController < ApplicationController
 
     respond_to do |format|
       if @exercise_type.exercises_performeds << @exercises_performed && @exercises_performed.save
-        format.html { redirect_to @exercises_performed, notice: 'Activity was successfully created.' }
+        format.html { redirect_to @exercises_performed, notice: 'Exercise Entry was successfully created.' }
         format.json { render :show, status: :created, location: @exercises_performed }
       else
         format.html { render :new }
@@ -51,6 +51,11 @@ class ExercisesPerformedsController < ApplicationController
   end
 
   def destroy
+    @exercises_performed.destroy
+    respond_to do |format|
+      format.html { redirect_to exercises_performed_url, notice: 'Exercise Entry was successfully destroyed.' }
+      format.json { head :no_content }
+    end
   end
 
   def set_exercise

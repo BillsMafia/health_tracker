@@ -41,8 +41,11 @@ class ExercisesPerformedsControllerTest < ActionController::TestCase
   end
 
   test "should get destroy" do
-    get :destroy, id: @exercise
-    assert_response :success
+    assert_difference('ExercisesPerformed.count', -1) do
+      delete :destroy, id: @exercise
+    end
+
+    assert_redirected_to exercises_performed_path
   end
 
 end
