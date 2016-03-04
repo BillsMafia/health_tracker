@@ -1,4 +1,5 @@
 <%= form_for(@steps_taken) do |f| %>
+<%= blow up %>
   <% if @steps_taken.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@steps_taken.errors.count, "error") %> prohibited this steps_taken from being saved:</h2>

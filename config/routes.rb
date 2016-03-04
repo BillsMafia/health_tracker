@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   resources :weights
   resources :exercises_performeds
   resources :exercises_type
-  resources :calories_consumed
+  resources :calories_consumeds
 
   root 'dashboard#index'
   get 'dashboard/index'

@@ -1,4 +1,4 @@
-<%= form_for(@calories_consumeds) do |f| %>
+<%= form_for(@calories_consumed) do |f| %>
   <% if @calories_consumed.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@calories_consumed.errors.count, "error") %> prohibited these calories consumed from being saved:</h2>

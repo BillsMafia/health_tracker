@@ -1,8 +1,8 @@
-class CaloriesConsumedController < ApplicationController
+class CaloriesConsumedsController < ApplicationController
   before_action :set_calories_consumed, only: [:show, :edit, :update, :destroy]
 
   def index
-    @all_calories_consumed = CaloriesConsumed.all
+    @calories_consumeds = CaloriesConsumed.all
   end
 
   def show
@@ -44,7 +44,7 @@ class CaloriesConsumedController < ApplicationController
   def destroy
     @calories_consumed.destroy
     respond_to do |format|
-      format.html { redirect_to calories_consumed_url, notice: 'Calories consumed was successfully destroyed.' }
+      format.html { redirect_to calories_consumeds_url, notice: 'Calories consumed was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
